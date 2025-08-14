@@ -1,30 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const registerPage = document.getElementById("register-page");
-  const loginPage = document.getElementById("login-page");
-  const registerForm = document.getElementById("register-form");
-  const loginForm = document.getElementById("login-form");
+// Gestion de l'affichage des pages
+document.getElementById('go-register').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('login-page').classList.add('hidden');
+  document.getElementById('register-page').classList.remove('hidden');
+});
 
-  const registerError = document.getElementById("register-error");
-  const registerSuccess = document.getElementById("register-success");
-  const loginError = document.getElementById("login-error");
-
-  const goLogin = document.getElementById("go-login");
-  const goRegister = document.getElementById("go-register");
-
-  // ✅ Afficher page de connexion au démarrage
-  loginPage.classList.remove("hidden");
-  registerPage.classList.add("hidden");
-
-  // Navigation
-  goLogin.addEventListener("click", (e) => {
-      e.preventDefault();
-      registerPage.classList.add("hidden");
-      loginPage.classList.remove("hidden");
-  });
-
-  goRegister.addEventListener("click", (e) => {
-      e.preventDefault();
-      loginPage.classList.add("hidden");
-      registerPage.classList.remove("hidden");
-  });
+document.getElementById('go-login').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('register-page').classList.add('hidden');
+  document.getElementById('login-page').classList.remove('hidden');
 });
