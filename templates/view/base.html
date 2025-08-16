@@ -18,28 +18,57 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
     <a href="#" class="flex items-center space-x-2">
       <img src="../../static/uploads/logo.png" alt="Logo" class="w-16">
-      <span class="text-white font-bold">MetaCollect</span>
+      <span class="text-white font-bold mt-2 fs-5 italic"><span class="fs-3 text-red-300 fw-italic">M</span>etaCollect</span>
     </a>
     <div class="hidden md:flex space-x-6">
-      <a href="#" class="text-decoration-none text-white flex items-center gap-1"><i class="bi bi-house-fill"></i> Accueil</a>
-      <a href="/auth" class="text-decoration-none text-white flex items-center gap-1"><i class="bi bi-plus-circle"></i> Nouveau Projet</a>
-      <a href="#" class="text-decoration-none text-white flex items-center gap-1"><i class="bi bi-list-task"></i> Liste des données</a>
-      <a href="#" class="text-decoration-none text-white flex items-center gap-1"><i class="bi bi-person-circle"></i> Profile</a>
-      <a href="#" class="text-decoration-none text-white flex items-center gap-1"><i class="bi bi-info-circle-fill"></i> A propos</a>
+      <a href="/accueil" class="text-decoration-none text-white flex items-center gap-1"><i class="bi bi-house-fill"></i> Accueil</a>
+      <a href="/nouveau-projet" class="text-decoration-none text-white flex items-center gap-1"><i class="bi bi-plus-circle"></i> Nouveau Projet</a>
+      <div class="dropdown text-white">
+        <a class="btn btn-transparent dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-list-task"></i> Liste des données
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li>
+              <a class="dropdown-item" href="/viewForm_project">
+                  <i class="bi bi-file-earmark-text me-2"></i> Afficher le formulaire
+              </a>
+          </li>
+          <li>
+              <a class="dropdown-item" href="/viewUsers">
+                  <i class="bi bi-people me-2"></i> Afficher les utilisateurs
+              </a>
+          </li>
+          <li>
+              <a class="dropdown-item" href="/filterData">
+                  <i class="bi bi-file-earmark-spreadsheet me-2"></i> Exporte des données
+              </a>
+          </li>
+      </ul>      
+    </div>
+      <a href="/help" class="text-decoration-none text-white flex items-center gap-1"><i class="bi bi-info-circle-fill"></i> A propos</a>
+      <a href="/profile" class="text-decoration-none text-white d-flex align-items-center gap-2">
+          <i class="bi bi-person-circle fs-4"></i>
+          {% if user %}
+              <span>{{ user.nom }}</span>
+          {% else %}
+              <span>Profile</span>
+          {% endif %}
+      </a>
     </div>
   </div>
 </nav>
 
 <!-- Main content -->
-<main class="max-w-3xl mx-auto mt-10 px-4">
+<main>
   {% block content %}
   <!-- Contenu des pages (login/register) -->
   {% endblock %}
 </main>
 
 <!-- Footer -->
-<footer class="bg-gray-800 text-white mt-10 py-8">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+<footer class="bg-gray-900 text-white mt-auto">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
     
     <!-- MetaCollect info -->
     <div>
@@ -56,17 +85,17 @@
     
     <!-- Menu -->
     <div>
-      <h5 class="font-bold mb-3">Menu</h5>
+      <h5 class="font-bold mb-3 ms-5">Menu</h5>
       <ul class="space-y-2">
-        <li><a href="/index" class="text-white hover:underline flex items-center gap-1"><i class="bi bi-house-fill"></i> Accueil</a></li>
-        <li><a href="/creat" class="text-white hover:underline flex items-center gap-1"><i class="bi bi-plus-circle"></i> Nouveau Projet</a></li>
-        <li><a href="/read" class="text-white hover:underline flex items-center gap-1"><i class="bi bi-list-task"></i> Liste de Projet</a></li>
+        <li><a href="/index" class="text-white text-decoration-none hover:underline flex items-center gap-1"><i class="bi bi-house-fill"></i> Accueil</a></li>
+        <li><a href="/creat" class="text-white text-decoration-none hover:underline flex items-center gap-1"><i class="bi bi-plus-circle"></i> Nouveau Projet</a></li>
+        <li><a href="/read" class="text-white text-decoration-none hover:underline flex items-center gap-1"><i class="bi bi-list-task"></i> Liste de Projet</a></li>
       </ul>
     </div>
 
     <!-- Contact -->
     <div>
-      <h5 class="font-bold mb-3">Contact us</h5>
+      <h5 class="font-bold mb-3 ms-4">Contact us</h5>
       <ul class="space-y-2 text-sm">
         <li><i class="bi bi-geo-alt me-2"></i>304 Fandriana Ambositra</li>
         <li><i class="bi bi-phone me-2"></i>+261 33 31 098 12</li>
@@ -79,6 +108,7 @@
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../static/js/script.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
 </body>
 </html>

@@ -1,0 +1,70 @@
+{% extends "view/base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="container-fluid p-0">
+    <div class="row g-0 align-items-center">
+        <!-- Texte gauche -->
+        <div class="text-white col-md-6 d-flex flex-column justify-content-center align-items-start p-5">
+            <h1 class="display-4 fw-bold">META COLLECTION</h1>
+            <p class="lead my-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Suspendisse varius enim in eros elementum tristique.
+            </p>
+            <a href="#" class="btn btn-success btn-lg mb-3">Learn More</a>
+        </div>
+
+        <!-- Images / carousel droite -->
+        <div class="col-md-6 position-relative">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ url_for('static', filename='uploads/meta2.png') }}" class="d-block w-75" alt="Image 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='uploads/meta3.png') }}" class="d-block w-75" alt="Image 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='uploads/data_11365310.png') }}" class="d-block w-50" alt="Image 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Section Présentation Projets -->
+<div class="container-fluid my-5">
+    <div class="row text-center text-white">
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border-none border-end  shadow-sm h-100">
+                <!-- Image pour Nouveau Projet centrée -->
+                <img src="{{ url_for('static', filename='uploads/data_11365310.png') }}" 
+                     alt="Nouveau Projet" 
+                     class="img-fluid d-block mx-auto mb-3" 
+                     style="max-height:150px;">
+                <h3>Nouveau Projet</h3>
+                <p>Créer un nouveau projet de collecte de données facilement.</p>
+                <button class="btn btn-primary">
+                    <a href="/new_project" class="text-decoration-none text-white flex items-center gap-1"><i class="bi bi-plus-circle"></i> Nouveau Projet</a>
+                </button>
+                </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border-none rounded shadow-sm h-100">
+                <!-- Image pour Afficher les Données centrée -->
+                <img src="{{ url_for('static', filename='uploads/data_11365310.png') }}" 
+                     alt="Afficher les Données" 
+                     class="img-fluid d-block mx-auto mb-3" 
+                     style="max-height:150px;">
+                <h3>Afficher les Données</h3>
+                <p>Visualiser et gérer vos données collectées.</p>
+                <button class="btn btn-primary">
+                    <a href="/viewAll_project" class="text-decoration-none text-white flex items-center gap-1"><i class="bi bi-eye"></i> Nouveau Projet</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

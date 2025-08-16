@@ -3,15 +3,15 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
     margin: 0;
-  }
-  .welcome-section {
-    height: calc(100vh - 56px); /* hauteur navbar */
-  }
-  ul li a{
-    text-indent: 12px;
-  }
-  footer{
-    background-color: rgb(117, 88, 197);
-  }
+}
+.welcome-section {
+  height: calc(100vh - 56px); /* hauteur navbar */
+}
+ul li a{
+  text-indent: 12px;
+}
+footer{
+  background-color: rgb(117, 88, 197);
+}
+
