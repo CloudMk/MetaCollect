@@ -1,20 +1,17 @@
 {% extends "view/base.html" %}
 
 {% block content %}
-<h2 class="text-white">Liste des projets</h2>
-<div class="row text-white">
-    {% for projet in projets %}
-    <div class="col-md-4 mb-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ projet.titre }}</h5>
-                <p class="card-text">{{ projet.description }}</p>
-                <p class="text-muted">Auteur: {{ projet.auteur }}</p>
-            </div>
-        </div>
-    </div>
-    {% else %}
-    <p>Aucun projet disponible. Créez-en un !</p>
-    {% endfor %}
+<div class="d-flex justify-content-center">
+<div class="mt-5 text-white">
+    <h1 class="">META COLLECTION</h1>
+    <p class="">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Suspendisse varius enim in eros elementum tristique.
+    </p>
+    <button class="btn btn-primary text-white  justify-content-center mt-5">
+        <i class="bi bi-plus-circle"></i>
+        <span>Creer un nouveau  projet</span>
+    </button>
+</div>
 </div>
 {% endblock %}
