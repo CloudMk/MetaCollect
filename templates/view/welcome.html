@@ -1,13 +1,89 @@
 {% extends "view/base.html" %}
 
 {% block content %}
-
 <!-- Contenu principal centré -->
 <div class="container d-flex flex-column justify-content-center align-items-center text-center welcome-section">
-  <h4 class="text-white fw-bold">Bievenue sur plateforme de collection des données, 
-    Si vous etes pres pour commence clique sur le button commence</h4>
-  <a href="/auth" class="btn btn-primary btn-lg mt-3">
+  <h4 class="text-white fw-bold">
+    Bienvenue sur la plateforme de collecte des données.  
+    Si vous êtes prêt à commencer, cliquez sur le bouton ci-dessous :
+  </h4>
+  <!-- Bouton qui ouvre la modal Connexion -->
+  <button class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#loginModal">
     <i class="bi bi-box-arrow-in-right"></i> Commencer
-  </a>
+  </button>
+</div>
+
+<!-- Modal Connexion -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered w-75">
+    <div class="modal-content rounded-3 shadow-lg w-75">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="loginLabel">Connexion à DataCollect</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div id="login-error" class="alert alert-danger text-center d-none"></div>
+
+        <form id="login-form" action="{{ url_for('routes_bp.login') }}" method="POST">
+          <input type="email" name="email" placeholder="Votre email" class="form-control mb-2 p-3 border-none border-bottom" required>
+          <input type="password" name="password" placeholder="Votre mot de passe" class="form-control mb-2 p-3 border-none border-bottom" required>
+
+          <p class="text-end mt-3">
+            <a href="#" id="forgoutpwd" class="text-primary">Mot de passe oublié ?</a>
+          </p>
+
+          <button type="submit" id="login-btn" class="btn btn-primary w-100">
+            <i class="fa-solid fa-paper-plane"></i> Se connecter
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <p class="text-center w-100 mb-0">
+          Pas de compte ? 
+          <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registerModal" class="text-primary">Inscrivez-vous</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Inscription -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-3 shadow-lg">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="registerLabel">Inscription à DataCollect</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted text-center">Créez votre compte pour commencer à contribuer.</p>
+        <div id="register-error" class="alert alert-danger text-center d-none"></div>
+
+        <form id="register-form" action="{{ url_for('routes_bp.register') }}" method="POST" enctype="multipart/form-data">
+          <input type="text" name="nom" placeholder="Nom d'utilisateur" class="form-control mb-2" required>
+
+          <div class="input-group mb-2">
+            <input type="email" id="email" name="email" placeholder="Votre email" class="form-control" required>
+            <button type="button" id="get-code-btn" class="btn btn-outline-secondary">Get code</button>
+          </div>
+
+          <input type="text" name="confirmation_code" placeholder="Code de confirmation" maxlength="6" class="form-control mb-2" required>
+          <input type="password" name="passwd" placeholder="Mot de passe" class="form-control mb-2" required>
+          <input type="file" name="file" class="form-control mb-2">
+
+          <button type="submit" id="register-btn" class="btn btn-primary w-100">
+            <i class="fa-solid fa-paper-plane"></i> S'inscrire
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <p class="text-center w-100 mb-0">
+          Déjà un compte ? 
+          <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal" class="text-primary">Connectez-vous</a>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
+

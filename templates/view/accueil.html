@@ -2,10 +2,10 @@
 
 {% block content %}
 <!-- Hero Section -->
-<div class="container-fluid p-0">
-    <div class="row g-0 align-items-center">
+<div class="container-fluid p-0 mt-5">
+    <div class="row g-0 align-items-center mt-5">
         <!-- Texte gauche -->
-        <div class="text-white col-md-6 d-flex flex-column justify-content-center align-items-start p-5">
+        <div class="text-white col-md-6 d-flex flex-column justify-content-center align-items-start p-5 mt-5">
             <h1 class="display-4 fw-bold">META COLLECTION</h1>
             <p class="lead my-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -38,11 +38,13 @@
     <div class="row text-center text-white">
         <div class="col-md-6 mb-4">
             <div class="p-4 border-none border-end  shadow-sm h-100">
-                <!-- Image pour Nouveau Projet centrée -->
-                <img src="{{ url_for('static', filename='uploads/data_11365310.png') }}" 
-                     alt="Nouveau Projet" 
-                     class="img-fluid d-block mx-auto mb-3" 
-                     style="max-height:150px;">
+                <dotlottie-player
+                    src="https://lottie.host/f4c0d5f6-2b6c-4862-8185-61e3b1375b9e/BRdataXR2U.lottie"
+                    background="transparent"
+                    speed="1"
+                    style="width: 100%; max-width: 300px; height: 300px; margin: auto;"
+                    loop autoplay>
+                </dotlottie-player>
                 <h3>Nouveau Projet</h3>
                 <p>Créer un nouveau projet de collecte de données facilement.</p>
                 <button class="btn btn-primary">
@@ -52,11 +54,13 @@
         </div>
         <div class="col-md-6 mb-4">
             <div class="p-4 border-none rounded shadow-sm h-100">
-                <!-- Image pour Afficher les Données centrée -->
-                <img src="{{ url_for('static', filename='uploads/data_11365310.png') }}" 
-                     alt="Afficher les Données" 
-                     class="img-fluid d-block mx-auto mb-3" 
-                     style="max-height:150px;">
+                <dotlottie-player
+                    src="https://lottie.host/88bed0f9-455a-4443-909a-93965dea5590/bSf3kkcMwi.lottie"
+                    background="transparent"
+                    speed="1"
+                    style="width: 100%; max-width: 300px; height: 300px; margin: auto;"
+                    loop autoplay>
+                </dotlottie-player>
                 <h3>Afficher les Données</h3>
                 <p>Visualiser et gérer vos données collectées.</p>
                 <button class="btn btn-primary">
